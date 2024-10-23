@@ -24,6 +24,15 @@ Compared with other schema languages like `rmp-serde`, `msgpack-schema` allows t
 
 - `proptest`: Enable `proptest::arbitrary::Arbitrary` impls for `msgpack_value::Value`.
 
+### WASM build
+
+To build for WASM targets, e.g. `wasm32-unknown-unknown`, disable default features.
+
+```toml
+[dependencies]
+msgpack-schema = {version = "1", default-features = false }
+```
+
 ## Behaviours of serializers and deserializers
 
 ### Structs with named fields

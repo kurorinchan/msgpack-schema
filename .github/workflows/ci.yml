@@ -47,6 +47,29 @@ jobs:
         run: |
           cargo test
 
+  wasm_build:
+    name: WASM build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v3
+
+      - name: Install stable toolchain
+        run: |
+          rustup toolchain install stable --profile minimal --no-self-update
+          rustup default stable
+      
+      - name: Install wasm toolchain
+        run: |
+          rustup target add wasm32-unknown-unknown
+
+      - name: Enable Rust build cache
+        uses: Swatinem/rust-cache@v2
+
+      - name: Build
+        run: |
+          cargo build --target=wasm32-unknown-unknown --no-default-features
+
   lints:
     name: Lints
     runs-on: ubuntu-latest
