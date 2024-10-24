@@ -265,7 +265,7 @@ impl Arbitrary for Int {
 ///
 /// - It just saves some memory. If your byte array is less than 32 byte length, using string type instead of byte array saves one byte per object.
 /// - The disiction only matters when _not_ using a data schema. Because this crate offers a statically-typed data schema, and we know how to decode data into a Rust object at compile time,
-/// distinction of these types in the input binary data is almost useless,
+///   distinction of these types in the input binary data is almost useless,
 ///
 /// Although we strongly recommend you to use string types rather than binary types, this crate does _not_ force you to do so.
 /// The functions and trait implementations provided by this crate are all taking a neutral stand.
